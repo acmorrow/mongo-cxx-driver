@@ -139,6 +139,10 @@ exampleSourceMap = [
 clientHeaders = [
     'mongo/base/disallow_copying.h',
     'mongo/base/error_codes.h',
+    'mongo/base/initializer.h',
+    'mongo/base/initializer_context.h',
+    'mongo/base/initializer_dependency_graph.h',
+    'mongo/base/initializer_function.h',
     'mongo/base/parse_number.h',
     'mongo/base/status-inl.h',
     'mongo/base/status.h',
@@ -206,6 +210,7 @@ clientHeaders = [
     'mongo/platform/hash_namespace.h',
     'mongo/platform/process_id.h',
     'mongo/platform/unordered_map.h',
+    'mongo/platform/unordered_set.h',
     'mongo/platform/windows_basic.h',
     'mongo/util/allocator.h',
     'mongo/util/assert_util.h',
