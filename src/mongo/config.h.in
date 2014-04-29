@@ -16,10 +16,5 @@
 #pragma once
 
 // Define to 1 if SSL support is enabled
-@mongoclient_ssl@
+#cmakedefine MONGO_SSL
 
-// Define to 1 if SASL support is enabled
-@mongoclient_sasl@
-
-// Define to 1 if unistd.h is available
-@mongoclient_have_header_unistd_h@
