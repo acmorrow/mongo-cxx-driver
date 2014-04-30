@@ -30,7 +30,7 @@ option(MONGOCLIENT_DISABLE_DECLSPEC_THREAD "Prohibit use of __declspec(thread)" 
 option(MONGOCLIENT_USE_SASL "Use SASL" OFF)
 
 if (WIN32)
-  option(MONGOCLIENT_DYNAMIC_WINDOWS "Link to dynamic windows runtime" ON)
+  option(MONGOCLIENT_STATIC_WINDOWS "Link to static windows runtime" OFF)
 endif()
 
 set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/lib/cmake")
