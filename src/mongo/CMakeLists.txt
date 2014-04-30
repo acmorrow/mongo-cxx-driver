@@ -21,7 +21,7 @@ endif()
 # cmakes default choice of /MD to /MT, respecting debug modes, across all configurations.
 if (WIN32)
 
-  if (not MSVC)
+  if (NOT MSVC)
     message (FATAL_ERROR "Don't know how to select windows runtime library non-MSVC windows compilers")
   endif()
 
@@ -66,7 +66,7 @@ add_definitions( -DBOOST_ALL_NO_LIB )
 
 # If we are not using the static libraries, add the proper define to use the dynamic libs. This
 # is perhaps not needed since we are not auto linking?
-if (not ${Boost_USE_STATIC_LIBS} )
+if (NOT ${Boost_USE_STATIC_LIBS} )
   add_definitions( -DBOOST_ALL_DYN_LIB )
 endif()
 
