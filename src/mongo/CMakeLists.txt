@@ -31,7 +31,7 @@ if (WIN32)
       endforeach()
     endif()
   else()
-    error("Don't know how to enable dynamic windows for non-MSVC windows compilers")
+    message (FATAL_ERROR "Don't know how to enable dynamic windows for non-MSVC windows compilers")
   endif()
 endif()
 
@@ -55,7 +55,7 @@ set(MONGOCLIENT_DYNAMIC_LIB_NAME "${MONGOCLIENT_DYNAMIC_LIB_NAME}${MONGOCLIENT_A
 
 # We use threads, so ban attempts to specify the single threaded boost library.
 if (NOT ${Boost_USE_MULTITHREADED})
-  error("Mongoclient requires multithreaded boost libraries")
+  message (FATAL_ERROR "Mongoclient requires multithreaded boost libraries")
 endif()
 
 # We don't use boost auto linking facility, relying instead on FindBoost getting us something
