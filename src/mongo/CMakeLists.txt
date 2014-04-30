@@ -20,19 +20,21 @@ endif()
 # On windows, if we are asked to not use the dynamic runtime, we need to reconfigure
 # cmakes default choice of /MD to /MT, respecting debug modes, across all configurations.
 if (WIN32)
-  if (MONGOCLIENT_STATIC_WINDOWS)
-    if (MSVC)
-      foreach(flag_var
-          CMAKE_CXX_FLAGS CMAKE_CXX_FLAGS_DEBUG CMAKE_CXX_FLAGS_RELEASE
-          CMAKE_CXX_FLAGS_MINSIZEREL CMAKE_CXX_FLAGS_RELWITHDEBINFO)
-        if (${flag_var} MATCHES "/MD")
-          string(REGEX REPLACE "/MD" "/MT" ${flag_var} "${${flag_var}}")
-        endif()
-      endforeach()
-    endif()
-  else()
-    message (FATAL_ERROR "Don't know how to enable dynamic windows for non-MSVC windows compilers")
+
+  if (not MSVC)
+    message (FATAL_ERROR "Don't know how to select windows runtime library non-MSVC windows compilers")
   endif()
+
+  if (MONGOCLIENT_STATIC_WINDOWS)
+    foreach(flag_var
+        CMAKE_CXX_FLAGS CMAKE_CXX_FLAGS_DEBUG CMAKE_CXX_FLAGS_RELEASE
+        CMAKE_CXX_FLAGS_MINSIZEREL CMAKE_CXX_FLAGS_RELWITHDEBINFO)
+      if (${flag_var} MATCHES "/MD")
+        string(REGEX REPLACE "/MD" "/MT" ${flag_var} "${${flag_var}}")
+      endif()
+    endforeach()
+  endif()
+
 endif()
 
 set (MONGOCLIENT_ABI_ADORNMENT "")
