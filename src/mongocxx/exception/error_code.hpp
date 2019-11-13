@@ -41,7 +41,13 @@ enum class error_code : std::int32_t {
     k_invalid_parameter,
 
     /// An SSL operation was used without SSL support being built.
-    k_ssl_not_supported,
+    k_ssl_not_supported_deprecated,
+
+    /// An SSL operation was used without SSL support being built.
+    k_ssl_not_supported MONGOCXX_DEPRECATED = k_ssl_not_supported_deprecated,
+
+    /// A TLS operation was used without TLS support being built
+    k_tls_not_supported = k_ssl_not_supported_deprecated,
 
     /// An unknown read concern level was set.
     k_unknown_read_concern,

@@ -29,7 +29,7 @@ namespace options {
 ///
 /// Class representing the optional arguments to a MongoDB driver client (SSL)
 ///
-class MONGOCXX_API ssl {
+class MONGOCXX_API ssl_deprecated {
    public:
     ///
     /// The path to the .pem file containing a public key certificate and its associated private
@@ -42,7 +42,7 @@ class MONGOCXX_API ssl {
     ///   A reference to the object on which this member function is being called.  This facilitates
     ///   method chaining.
     ///
-    ssl& pem_file(bsoncxx::string::view_or_value pem_file);
+    ssl_deprecated& pem_file(bsoncxx::string::view_or_value pem_file);
 
     ///
     /// Retrieves the current path to the .pem file.
@@ -61,7 +61,7 @@ class MONGOCXX_API ssl {
     ///   A reference to the object on which this member function is being called.  This facilitates
     ///   method chaining.
     ///
-    ssl& pem_password(bsoncxx::string::view_or_value pem_password);
+    ssl_deprecated& pem_password(bsoncxx::string::view_or_value pem_password);
 
     ///
     /// Retrieves the current decryption pass phrase.
@@ -81,7 +81,7 @@ class MONGOCXX_API ssl {
     ///   A reference to the object on which this member function is being called.  This facilitates
     ///   method chaining.
     ///
-    ssl& ca_file(bsoncxx::string::view_or_value ca_file);
+    ssl_deprecated& ca_file(bsoncxx::string::view_or_value ca_file);
 
     ///
     /// Retrieves the current path to the CA file.
@@ -100,7 +100,7 @@ class MONGOCXX_API ssl {
     ///   A reference to the object on which this member function is being called.  This facilitates
     ///   method chaining.
     ///
-    ssl& ca_dir(bsoncxx::string::view_or_value ca_dir);
+    ssl_deprecated& ca_dir(bsoncxx::string::view_or_value ca_dir);
 
     ///
     /// Retrieves the current path to the CA directory.
@@ -119,7 +119,7 @@ class MONGOCXX_API ssl {
     ///   A reference to the object on which this member function is being called.  This facilitates
     ///   method chaining.
     ///
-    ssl& crl_file(bsoncxx::string::view_or_value crl_file);
+    ssl_deprecated& crl_file(bsoncxx::string::view_or_value crl_file);
 
     ///
     /// Retrieves the current path to the .pem file that contains revoked certificates.
@@ -138,7 +138,7 @@ class MONGOCXX_API ssl {
     ///   A reference to the object on which this member function is being called.  This facilitates
     ///   method chaining.
     ///
-    ssl& allow_invalid_certificates(bool allow_invalid_certificates);
+    ssl_deprecated& allow_invalid_certificates(bool allow_invalid_certificates);
 
     ///
     /// Retrieves whether or not the driver will check the server's CA file.
@@ -155,6 +155,8 @@ class MONGOCXX_API ssl {
     stdx::optional<bsoncxx::string::view_or_value> _crl_file;
     stdx::optional<bool> _allow_invalid_certificates;
 };
+
+using ssl MONGOCXX_DEPRECATED = ssl_deprecated;
 
 }  // namespace options
 MONGOCXX_INLINE_NAMESPACE_END

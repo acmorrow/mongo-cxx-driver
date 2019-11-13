@@ -112,7 +112,15 @@ std::string uri::to_string() const {
 }
 
 bool uri::ssl() const {
+    return ssl_deprecated();
+}
+
+bool uri::ssl_deprecated() const {
     return libmongoc::uri_get_tls(_impl->uri_t);
+}
+
+bool uri::tls() const {
+    return ssl_deprecated();
 }
 
 std::string uri::username() const {

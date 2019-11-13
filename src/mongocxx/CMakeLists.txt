@@ -342,6 +342,7 @@ set_local_dist (src_mongocxx_DIST_local
    options/replace.hpp
    options/ssl.cpp
    options/ssl.hpp
+   options/tls.hpp
    options/transaction.cpp
    options/transaction.hpp
    options/update.cpp

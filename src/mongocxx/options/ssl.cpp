@@ -20,57 +20,57 @@ namespace mongocxx {
 MONGOCXX_INLINE_NAMESPACE_BEGIN
 namespace options {
 
-ssl& ssl::pem_file(bsoncxx::string::view_or_value pem_file) {
+ssl_deprecated& ssl_deprecated::pem_file(bsoncxx::string::view_or_value pem_file) {
     _pem_file = std::move(pem_file);
     return *this;
 }
 
-const stdx::optional<bsoncxx::string::view_or_value>& ssl::pem_file() const {
+const stdx::optional<bsoncxx::string::view_or_value>& ssl_deprecated::pem_file() const {
     return _pem_file;
 }
 
-ssl& ssl::pem_password(bsoncxx::string::view_or_value pem_password) {
+ssl_deprecated& ssl_deprecated::pem_password(bsoncxx::string::view_or_value pem_password) {
     _pem_password = std::move(pem_password);
     return *this;
 }
 
-const stdx::optional<bsoncxx::string::view_or_value>& ssl::pem_password() const {
+const stdx::optional<bsoncxx::string::view_or_value>& ssl_deprecated::pem_password() const {
     return _pem_password;
 }
 
-ssl& ssl::ca_file(bsoncxx::string::view_or_value ca_file) {
+ssl_deprecated& ssl_deprecated::ca_file(bsoncxx::string::view_or_value ca_file) {
     _ca_file = std::move(ca_file);
     return *this;
 }
 
-const stdx::optional<bsoncxx::string::view_or_value>& ssl::ca_file() const {
+const stdx::optional<bsoncxx::string::view_or_value>& ssl_deprecated::ca_file() const {
     return _ca_file;
 }
 
-ssl& ssl::ca_dir(bsoncxx::string::view_or_value ca_dir) {
+ssl_deprecated& ssl_deprecated::ca_dir(bsoncxx::string::view_or_value ca_dir) {
     _ca_dir = std::move(ca_dir);
     return *this;
 }
 
-const stdx::optional<bsoncxx::string::view_or_value>& ssl::ca_dir() const {
+const stdx::optional<bsoncxx::string::view_or_value>& ssl_deprecated::ca_dir() const {
     return _ca_dir;
 }
 
-ssl& ssl::crl_file(bsoncxx::string::view_or_value crl_file) {
+ssl_deprecated& ssl_deprecated::crl_file(bsoncxx::string::view_or_value crl_file) {
     _crl_file = std::move(crl_file);
     return *this;
 }
 
-const stdx::optional<bsoncxx::string::view_or_value>& ssl::crl_file() const {
+const stdx::optional<bsoncxx::string::view_or_value>& ssl_deprecated::crl_file() const {
     return _crl_file;
 }
 
-ssl& ssl::allow_invalid_certificates(bool allow_invalid_certificates) {
+ssl_deprecated& ssl_deprecated::allow_invalid_certificates(bool allow_invalid_certificates) {
     _allow_invalid_certificates = allow_invalid_certificates;
     return *this;
 }
 
-const stdx::optional<bool>& ssl::allow_invalid_certificates() const {
+const stdx::optional<bool>& ssl_deprecated::allow_invalid_certificates() const {
     return _allow_invalid_certificates;
 }
 

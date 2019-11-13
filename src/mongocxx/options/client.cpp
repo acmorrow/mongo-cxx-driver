@@ -20,13 +20,29 @@ namespace mongocxx {
 MONGOCXX_INLINE_NAMESPACE_BEGIN
 namespace options {
 
-client& client::ssl_opts(ssl ssl_opts) {
+client& client::ssl_opts(ssl_deprecated ssl_opts) {
+    return ssl_opts_deprecated(std::move(ssl_opts));
+}
+
+client& client::ssl_opts_deprecated(ssl_deprecated ssl_opts) {
     _ssl_opts = std::move(ssl_opts);
     return *this;
 }
 
-const stdx::optional<ssl>& client::ssl_opts() const {
+client& client::tls_opts(tls tls_opts) {
+    return ssl_opts_deprecated(std::move(tls_opts));
+}
+
+const stdx::optional<ssl_deprecated>& client::ssl_opts() const {
+    return ssl_opts_deprecated();
+}
+
+const stdx::optional<ssl_deprecated>& client::ssl_opts_deprecated() const {
     return _ssl_opts;
+}
+
+const stdx::optional<tls>& client::tls_opts() const {
+    return ssl_opts_deprecated();
 }
 
 client& client::apm_opts(apm apm_opts) {
